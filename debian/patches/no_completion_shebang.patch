@@ -1,0 +1,15 @@
+Author: David Steele <steele@debian.org>
+Forwarded: no
+Description: Don't pretend the completion script stands alone
+ Lintian was not happy that the todo completion script was (correctly)
+ being installed without execute privs. Remove the shebang o nthat script
+ to placate lintian.
+
+--- a/todo_completion
++++ b/todo_completion
+@@ -1,4 +1,4 @@
+-#!/bin/bash source-this-script
++
+ [ "$BASH_VERSION" ] || return
+ 
+ _todo()
