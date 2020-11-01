@@ -1,0 +1,5 @@
+todo.txt-cli (2.12-1) unstable; urgency=medium
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- David Steele <steele@debian.org>  Sat, 31 Oct 2020 22:34:12 -0400
