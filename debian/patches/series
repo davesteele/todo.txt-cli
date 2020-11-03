@@ -1,2 +1,3 @@
 eliminate_test.patch
 no_completion_shebang.patch
+dir_suggestion.patch

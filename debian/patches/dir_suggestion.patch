@@ -1,0 +1,13 @@
+--- a/todo.cfg
++++ b/todo.cfg
+@@ -1,6 +1,10 @@
+ # === EDIT FILE LOCATIONS BELOW ===
+ 
+ # Your todo.txt directory (this should be an absolute path)
++#
++# Many apps in the todo.txt ecosystem point to an externally-shared directory
++# for list storage (e.g. ~/Dropbox/todo/)
++#
+ #export TODO_DIR="/Users/gina/Documents/todo"
+ export TODO_DIR=$(dirname "$0")
+ 
