@@ -1,0 +1,3 @@
+# The Buster implementation of this tag is incompatible with
+# update-alternatives
+command-with-path-in-maintainer-script

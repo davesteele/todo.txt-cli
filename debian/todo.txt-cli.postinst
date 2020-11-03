@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+  configure)
+    update-alternatives --install /usr/bin/todo todo /usr/bin/todo.txt-cli 50 \
+      --slave /usr/bin/todo.txt todo.txt /usr/bin/todo.txt-cli \
+      --slave /usr/share/man/man8/todo.8.gz todo.8.gz /usr/share/man/man8/todo.txt-cli.8.gz \
+      --slave /usr/share/man/man8/todo.txt.8.gz todo.txt.8.gz /usr/share/man/man8/todo.txt-cli.8.gz
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0
