@@ -8,11 +8,14 @@ todo.txt -- A text-bask task management CLI utility
 
 ## SYNOPSIS
 
-`todo.txt [-fhpantvV] [-d todo_config] action [task_number] [task_description]`
+`todo.txt [-fhpantvV] [-d todo_config] action [task_number]`
+` [task_description]`
 
-`todo.txt-cli [-fhpantvV] [-d todo_config] action [task_number] [task_description]`
+`todo.txt-cli [-fhpantvV] [-d todo_config] action [task_number]`
+` [task_description]`
 
-`todo [-fhpantvV] [-d todo_config] action [task_number] [task_description]`
+`todo [-fhpantvV] [-d todo_config] action [task_number]`
+` [task_description]`
 
 ## DESCRIPTION
 

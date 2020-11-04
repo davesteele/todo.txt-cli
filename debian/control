@@ -14,7 +14,7 @@ Package: todo.txt-cli
 Architecture: all
 Conflicts: devtodo
 Provides: todo, todo.txt
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends}, todo.txt-base, python3 (>= 3.7)
 Description: simple CLI utility for managing tasks
  The Todo.txt project defines a format for supporting context-rich tasking in a
  plain text file. It supports an ecosystem of tools which allow working with

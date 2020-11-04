@@ -1,0 +1,73 @@
+#!/usr/bin/python3
+
+import argparse
+import subprocess
+from os import environ
+from pathlib import Path
+
+CFGVAR = "TODOTXT_GLOBAL_CFG_FILE"
+if CFGVAR in environ:
+    GLOBALCFG = environ[CFGVAR]
+else:
+    GLOBALCFG = "/etc/todo/config"
+
+XCFGVAR = "XDG_CONFIG_HOME"
+HOMECFG = environ[XCFGVAR] if XCFGVAR in environ else "~/.config"
+
+cfg_locations = [
+    "~/todo.cfg",
+    "~/.todo.cfg",
+    HOMECFG + "/todo/config",
+    GLOBALCFG,
+]
+
+
+def config_file_path():
+    """Find the configuration file path todo.txt-cli would use."""
+    for cfg_location in cfg_locations:
+        path = Path(cfg_location).expanduser()
+        if path.exists() and str(path) != ".":
+            return str(path)
+
+    raise FileNotFoundError
+
+
+def get_var(var, defaultval):
+    """Get the value of a configuration variable."""
+    cfgpath = config_file_path()
+    cmd = ". {0}; echo ${1}".format(cfgpath, var)
+    cp = subprocess.run(cmd, shell=True, capture_output=True, encoding="utf-8")
+    output = cp.stdout.strip()
+
+    if output:
+        return output
+    else:
+        return defaultval
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Manage todo.txt-cli config info"
+    )
+
+    parser.add_argument(
+        "command",
+        choices=["todofile"],
+        help="What information do you need?",
+    )
+
+    return parser.parse_args()
+
+
+def main():
+    args = parse_args()
+
+    cmds = {
+        "todofile": get_var("TODO_FILE", ""),
+        "configpath": config_file_path(),
+    }
+
+    print(cmds[args.command])
+
+
+main()
