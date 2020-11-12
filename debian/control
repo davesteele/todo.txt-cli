@@ -2,10 +2,11 @@ Source: todo.txt-cli
 Section: text
 Priority: optional
 Maintainer: David Steele <steele@debian.org>
-Build-Depends: debhelper (>= 11),
+Build-Depends: debhelper-compat (= 13),
                bash-completion,
                pandoc,
 Standards-Version: 4.1.3
+Rules-Requires-Root: no
 Homepage: http://todotxt.org/
 Vcs-Browser: https://github.com/davesteele/todo.txt-cli
 Vcs-Git: https://github.com/davesteele/todo.txt-cli.git
